@@ -1,0 +1,14 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+public class Passed
+{
+    public static void Main()
+    {
+        float input= float.Parse(Console.ReadLine());
+        if (input>=3.00F)
+        {
+            Console.WriteLine("Passed!");
+        }
+    }
+}
