@@ -1,0 +1,50 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+public class BackIn30Minutes
+{
+    public static void Main()
+    {
+        int hours = int.Parse(Console.ReadLine());
+        int minutes = int.Parse(Console.ReadLine());
+        int hToMinutes = hours * 60;
+        int totalTimeMinutes = hToMinutes + minutes;
+        int result = totalTimeMinutes + 30;
+        int resultHour = result / 60;
+        int resultMinutes = result % 60;
+        if (resultHour>23)
+        {
+            int tempHour = 24 - resultHour;
+            if (resultMinutes<=9)
+            {
+                Console.WriteLine($"{tempHour}:0{resultMinutes}");
+            }
+            else
+            {
+                Console.WriteLine($"{tempHour}:{resultMinutes}");
+            }
+        }
+        else if (resultHour==24)
+        {
+            if (resultMinutes <= 9)
+            {
+                Console.WriteLine($"{00}:0{resultMinutes}");
+            }
+            else
+            {
+                Console.WriteLine($"{00}:{resultMinutes}");
+            }
+        }
+        else
+        {
+            if (resultMinutes <= 9)
+            {
+                Console.WriteLine($"{resultHour}:0{resultMinutes}");
+            }
+            else
+            {
+                Console.WriteLine($"{resultHour}:{resultMinutes}");
+            }
+        }
+    }
+}
