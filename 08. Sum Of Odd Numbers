@@ -1,0 +1,20 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+public class SumOfOddNumbers
+{
+    public static void Main()
+    {
+        int n = int.Parse(Console.ReadLine());
+        int sum = 1;
+        int temp = 1;
+        Console.WriteLine(temp);
+        for (int i = 1; i <n; i++)
+        {
+            temp += 2;
+            Console.WriteLine(temp);
+            sum += temp;
+        }
+        Console.WriteLine($"Sum: {sum}");
+    }
+}
