@@ -1,0 +1,79 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Hotel
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string month = Console.ReadLine();
+            double numNights = int.Parse(Console.ReadLine());
+            double discountedRoom = 0;
+            if (month == "May" || month == "October")
+            {
+                if (numNights <= 7)
+                {
+                    Console.WriteLine($"Studio: {numNights * 50:F2} lv.");
+                    Console.WriteLine($"Double: {numNights * 65:F2} lv.");
+                    Console.WriteLine($"Suite: {numNights * 75:F2} lv.");
+                }
+                else if (numNights > 7 && month == "May")
+                {
+                    discountedRoom = 50 - ((50 * 5) / 100D);
+                    Console.WriteLine($"Studio: {numNights * discountedRoom:F2} lv.");
+                    Console.WriteLine($"Double: {numNights * 65:F2} lv.");
+                    Console.WriteLine($"Suite: {numNights * 75:F2} lv.");
+                }
+                else if (numNights > 7 && month == "October")
+                {
+                    discountedRoom = 50 - ((50 * 5) / 100D);
+                    Console.WriteLine($"Studio: {(numNights - 1) * discountedRoom:F2} lv.");
+                    Console.WriteLine($"Double: {numNights * 65:F2} lv.");
+                    Console.WriteLine($"Suite: {numNights * 75:F2} lv.");
+                }
+            }
+            else if (month == "June" || month == "September")
+            {
+                if (numNights > 7  && month == "September")
+                {
+                    Console.WriteLine($"Studio: {(numNights - 1) * 60:F2} lv.");
+                    Console.WriteLine($"Double: {numNights * 72:F2} lv.");
+                    Console.WriteLine($"Suite: {numNights * 82:F2} lv.");
+                }
+                else if (numNights > 14)
+                {
+                    discountedRoom = 72 - ((72 * 10) / 100D);
+                    Console.WriteLine($"Studio: {numNights * 60:F2} lv.");
+                    Console.WriteLine($"Double: {numNights * discountedRoom:F2} lv.");
+                    Console.WriteLine($"Suite: {numNights * 82:F2} lv.");
+                }
+                else if (numNights <= 14)
+                {
+                    Console.WriteLine($"Studio: {numNights * 60:F2} lv.");
+                    Console.WriteLine($"Double: {numNights * 72:F2} lv.");
+                    Console.WriteLine($"Suite: {numNights * 82:F2} lv.");
+                }
+            }
+            else if (month == "July" || month == "August" || month == "December")
+            {
+                if (numNights <= 14)
+                {
+                    Console.WriteLine($"Studio: {numNights * 68:F2} lv.");
+                    Console.WriteLine($"Double: {numNights * 77:F2} lv.");
+                    Console.WriteLine($"Suite: {numNights * 89:F2} lv.");
+                }
+                else 
+                {
+                    discountedRoom = 89 - ((89* 15) / 100D);
+                    Console.WriteLine($"Studio: {numNights * 68:F2} lv.");
+                    Console.WriteLine($"Double: {numNights * 77:F2} lv.");
+                    Console.WriteLine($"Suite: {numNights * discountedRoom:F2} lv.");
+                }
+            }
+        }
+    }
+}
