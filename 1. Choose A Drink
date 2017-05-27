@@ -1,0 +1,26 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+public class ChooseADrink
+{
+    static void Main()
+    {
+        string proffestion = Console.ReadLine();
+        if (proffestion== "Athlete")
+        {
+            Console.WriteLine("Water");
+        }
+        else if (proffestion == "Businessman" || proffestion == "Businesswoman")
+        {
+            Console.WriteLine("Coffee");
+        }
+        else if (proffestion == "SoftUni Student")
+        {
+            Console.WriteLine("Beer");
+        }
+        else
+        {
+            Console.WriteLine("Tea");
+        }
+    }
+}
