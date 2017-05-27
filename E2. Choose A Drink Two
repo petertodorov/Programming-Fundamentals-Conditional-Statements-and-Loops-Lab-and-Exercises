@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+public class ChooseADrinkTwo
+{
+    static void Main()
+    {
+        string proffestion = Console.ReadLine();
+        int qunantity = int.Parse(Console.ReadLine());
+        double price = 0;
+        double totalPrice = 0; 
+        if (proffestion== "Athlete")
+        {
+            price = 0.7D;
+            totalPrice = price * qunantity;
+            Console.WriteLine($"The {proffestion} has to pay {totalPrice:F2}.");
+        }
+        else if (proffestion == "Businessman" || proffestion == "Businesswoman")
+        {
+            price = 1D;
+            totalPrice = price * qunantity;
+            Console.WriteLine($"The {proffestion} has to pay {totalPrice:F2}.");
+        }
+        else if (proffestion == "SoftUni Student")
+        {
+            price = 1.7D;
+            totalPrice = price * qunantity;
+            Console.WriteLine($"The {proffestion} has to pay {totalPrice:F2}.");
+        }
+        else
+        {
+            price = 1.2D;
+            totalPrice = price * qunantity;
+            Console.WriteLine($"The {proffestion} has to pay {totalPrice:F2}.");
+        }
+    }
+}
