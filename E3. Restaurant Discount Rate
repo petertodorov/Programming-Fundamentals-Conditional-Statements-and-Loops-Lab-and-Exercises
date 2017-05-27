@@ -1,0 +1,66 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+public class RestaurantDiscountRate
+{
+    static void Main()
+    {
+        int groupSize = int.Parse(Console.ReadLine());
+        string package = Console.ReadLine();
+        int priceHall = 0;
+        int pricePackage = 0;
+        double totalPrice = 0;
+        double pricePerPerson = 0;
+        double discountRate = 0;
+        double discount = 0;
+        string hall = string.Empty;
+        if (groupSize <= 50)
+        {
+            hall = "Small Hall";
+            priceHall = 2500;
+            pricePerPerson = DeterminePackage(package, discount, priceHall, pricePerPerson, groupSize, totalPrice, discountRate, pricePackage);
+        }
+        else if (groupSize > 50 && groupSize <= 100)
+        {
+            hall = "Terrace";
+            priceHall = 5000;
+            pricePerPerson = DeterminePackage(package, discount, priceHall, pricePerPerson, groupSize, totalPrice, discountRate, pricePackage);
+        }
+        else if (groupSize > 100 && groupSize <= 120)
+        {
+            hall = "Great Hall";
+            priceHall = 7500;
+            pricePerPerson = DeterminePackage(package, discount, priceHall, pricePerPerson, groupSize, totalPrice, discountRate, pricePackage);
+        }
+        if (groupSize > 120)
+        {
+            Console.WriteLine("We do not have an appropriate hall.");
+        }
+        else
+        {
+            Console.WriteLine($"We can offer you the {hall}\nThe price per person is {pricePerPerson:F2}$");
+        }
+    }
+    private static double DeterminePackage(string package, double discount, int priceHall, double pricePerPerson, int groupSize, double totalPrice, double discountRate, int pricePackage)
+    {
+        switch (package)
+        {
+            case "Normal":
+                discountRate = 5;
+                pricePackage = 500;
+                break;
+            case "Gold":
+                discountRate = 10;
+                pricePackage = 750;
+                break;
+            case "Platinum":
+                discountRate = 15;
+                pricePackage = 1000;
+                break;
+        }
+        discount = ((priceHall + pricePackage) * discountRate) / 100D;
+        totalPrice = (priceHall + pricePackage) - discount;
+        pricePerPerson = totalPrice / groupSize;
+        return pricePerPerson;
+    }
+}
