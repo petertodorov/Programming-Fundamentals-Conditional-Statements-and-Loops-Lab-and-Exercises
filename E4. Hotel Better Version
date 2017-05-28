@@ -1,0 +1,60 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Hotel
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string month = Console.ReadLine();
+            double numNights = double.Parse(Console.ReadLine());
+            double studioPrice = 0;
+            double doublePrice = 0;
+            double suitePrice = 0;
+            switch (month)
+            {
+                case "May":
+                case "October":
+                    {
+                        studioPrice = 50; doublePrice = 65; suitePrice = 75;
+                    }
+                    break;
+                case "June":
+                case "September":
+                    {
+                        doublePrice = 72; studioPrice = 60; suitePrice = 82;
+                    }
+                    break;
+                case "July":
+                case "August":
+                case "December":
+                    {
+                        studioPrice = 68; doublePrice = 77;  suitePrice = 89;
+                    }
+                    break;
+            }
+            if ((month =="May" || month == "October")&& numNights>7)
+            {
+                studioPrice *= 0.95;
+            }
+            else if ((month == "June" || month == "September") && numNights > 14)
+            {
+                doublePrice*= 0.9;
+            }
+            else if ((month == "July" || month == "August" || month == "December") && numNights > 14)
+            {
+                suitePrice *= 0.85;
+            }
+            double[] endPrices = new double[] { studioPrice * numNights, doublePrice * numNights, suitePrice * numNights };
+            if ((month == "September" || month == "October") && numNights > 7)
+            {
+                endPrices[0]-=studioPrice;
+            }
+            Console.WriteLine($"Studio: {endPrices[0]:F2} lv.\nDouble: {endPrices[1]:F2} lv.\nSuite: {endPrices[2]:F2} lv.");
+        }
+    }
+}
