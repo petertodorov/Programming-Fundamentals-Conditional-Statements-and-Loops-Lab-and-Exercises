@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+class CountTheIntegers
+{
+    static void Main(string[] args)
+    {
+        string input = Console.ReadLine();
+        int counter = new int();
+        bool check = true;
+        while (check)
+        {
+            try
+            {
+             int  number = int.Parse(input);
+                counter++;
+                input = Console.ReadLine();
+            }
+            catch (Exception)
+            {
+                check = false;
+            }
+        }
+        Console.WriteLine(counter);
+    }
+}
+
+
+
+
