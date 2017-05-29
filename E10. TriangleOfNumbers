@@ -15,6 +15,7 @@ class TriangleOfNumbers
             {
                 Console.Write($"{row} ");
             }
+            
             Console.WriteLine();
         }
     }
