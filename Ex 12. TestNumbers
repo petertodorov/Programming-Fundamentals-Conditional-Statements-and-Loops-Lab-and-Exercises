@@ -30,6 +30,6 @@ class TestNumbers
             }
         }
         Console.WriteLine($"{counter} combinations");
-        Console.WriteLine($"Sum: {sum}");
+        Console.WriteLine($"Sum: {sum}"); 
     }
 }
