@@ -1,0 +1,31 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+class MagicLetter
+{
+    static void Main(string[] args)
+    {
+        char first = char.Parse(Console.ReadLine());
+        char second = char.Parse(Console.ReadLine());
+        char notToPRint = char.Parse(Console.ReadLine());
+        string check = "";
+        for (char i = first; i <=second; i++)
+        {
+            for (char j = first; j <=second; j++)
+            {
+                for (char x = first; x <=second; x++)
+                {
+                    check = Convert.ToString(i) + Convert.ToString(j)+Convert.ToString(x);
+                    if (!check.Contains(notToPRint))
+                    {
+                        Console.Write($"{check} ");
+                    }
+                }
+            }
+          
+        }
+    }
+}
