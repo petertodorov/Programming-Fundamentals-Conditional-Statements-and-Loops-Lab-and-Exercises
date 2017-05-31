@@ -1,0 +1,77 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace NeighbourWars
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string nameAttacker = "";
+            string attacked = "";
+            string strike = "";
+            int goshoHealth = 100;
+            int peshoHealth = 100;
+            int turn = 0;
+            int counter = 0;
+            string winner = "";
+            int numRound = 0;
+            int healthDefending = 0;
+            int peshoDamage = int.Parse(Console.ReadLine());
+            int goshoDamage = int.Parse(Console.ReadLine());
+           
+            while (goshoHealth>0||peshoHealth>0)
+            {
+                turn++;
+                counter++;
+                if (turn%2!=0)
+                {
+                    nameAttacker = "Pesho";
+                    attacked = "Gosho";
+                    strike = "Roundhouse kick";
+                    goshoHealth -= peshoDamage;
+                }
+                else
+                {
+                    nameAttacker = "Gosho";
+                    attacked = "Pesho";
+                    strike = "Thunderous fist";
+                    peshoHealth-=goshoDamage ;
+                }
+               
+                if (goshoHealth<=0)
+                {
+                    winner = "Pesho";
+                    numRound = turn;
+                    break;
+                }
+                else if (peshoHealth<=0)
+                {
+                    winner = "Gosho";
+                    numRound = turn;
+                    break;
+                }
+                if (nameAttacker=="Gosho")
+                {
+                     healthDefending = peshoHealth;
+                    Console.WriteLine($"{nameAttacker} used {strike} and reduced {attacked} to {healthDefending} health.");
+                }
+                else if(nameAttacker == "Pesho" )
+                {
+                    healthDefending = goshoHealth;
+                    Console.WriteLine($"{nameAttacker} used {strike} and reduced {attacked} to {healthDefending} health.");
+                }
+                if (counter == 3)
+                {
+                    goshoHealth += 10;
+                    peshoHealth += 10;
+                    counter = 0;
+                }
+            }
+            Console.WriteLine($"{winner} won in {numRound}th round.");
+        }
+    }
+}
